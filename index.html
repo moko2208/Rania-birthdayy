@@ -3,21 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Queen 🎂</title>
+  <title>Queen’s Birthday Celebration</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <audio id="birthdayMusic" autoplay>
-    <source src="media/disney_intro.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
 
-  <div class="container">
-    <div class="scene">
-      <img src="images/character.png" alt="Cartoon Girl" class="character" />
-      <h1 class="title">Happy Birthday, Queen! 👑</h1>
+  <!-- 1. Opening Cinematic -->
+  <section id="intro" class="active">
+    <audio id="introMusic" autoplay>
+      <source src="assets/disney_intro.mp3" type="audio/mpeg" />
+    </audio>
+    <img src="assets/character.png" class="character" alt="Cartoon Character">
+    <h1 class="speech">Happy Birthday, Queen Rania! 👑</h1>
+    <button class="btn" onclick="nextSection('gift')">Enter the Celebration 🎉</button>
+  </section>
+
+  <!-- 2. Secret Gift Page -->
+  <section id="gift">
+    <h2>🎁 Secret Gift</h2>
+    <img src="assets/gift-box.png" class="gift" alt="Gift Box" onclick="openGift()">
+    <div id="giftReveal" class="hidden">
+      <p>Your surprise is ready!</p>
+      <a href="assets/video1.mp4" download class="btn">Download Video</a>
+      <div class="qr">
+        <!-- generate your QR graphic and place as image: -->
+        <img src="assets/qr.png" alt="QR Message">
+      </div>
     </div>
-  </div>
+    <button class="btn" onclick="nextSection('cake')">Next ➡️</button>
+  </section>
+
+  <!-- 3. Cake Time -->
+  <section id="cake">
+    <h2>🧁 Cake Time</h2>
+    <img src="assets/cake.png" class="cake" alt="Cake" onclick="lightCandles()">
+    <audio id="blowSong">
+      <source src="assets/birthday_song.mp3" type="audio/mpeg">
+    </audio>
+    <button class="btn" onclick="nextSection('gallery')">Next ➡️</button>
+  </section>
+
+  <!-- 4. Memories Gallery -->
+  <section id="gallery">
+    <h2>📸 Our Memories</h2>
+    <div class="photos">
+      <!-- repeat for each photo -->
+      <img src="assets/photo1.jpg" alt="">
+      <img src="assets/photo2.jpg" alt="">
+      <!-- … -->
+    </div>
+    <button class="btn" onclick="nextSection('video')">Next ➡️</button>
+  </section>
+
+  <!-- 5. Video Wishes -->
+  <section id="video">
+    <h2>📽️ Birthday Wishes</h2>
+    <div class="vids">
+      <video src="assets/video1.mp4" controls></video>
+      <video src="assets/video2.mp4" controls></video>
+      <!-- … -->
+    </div>
+    <button class="btn" onclick="nextSection('games')">Next ➡️</button>
+  </section>
+
+  <!-- 6. Fun Games -->
+  <section id="games">
+    <h2>🎉 Let’s Play!</h2>
+    <button class="btn" onclick="startQuiz()">Quiz: Who Knows You Best?</button>
+    <button class="btn" onclick="spinWheel()">Spin the Wheel 🎡</button>
+    <button class="btn" onclick="messageWall()">Leave a Message 💌</button>
+    <button class="btn" onclick="nextSection('effects')">Next ➡️</button>
+  </section>
+
+  <!-- 7. Background Effects -->
+  <section id="effects">
+    <h2>🌌 Magical Effects</h2>
+    <p>Stars, hearts, butterflies floating around—everywhere!</p>
+    <button class="btn" onclick="nextSection('audio')">Next ➡️</button>
+  </section>
+
+  <!-- 8. Voice Message -->
+  <section id="audio">
+    <h2>🎤 Voice Message</h2>
+    <audio controls>
+      <source src="assets/birthday_song.mp3" type="audio/mpeg">
+    </audio>
+    <button class="btn" onclick="nextSection('future')">Next ➡️</button>
+  </section>
+
+  <!-- 9. Future Letter -->
+  <section id="future">
+    <h2>💌 Message to Future</h2>
+    <button class="btn" onclick="openFuture()">Open in 365 Days</button>
+    <button class="btn" onclick="nextSection('final')">Next ➡️</button>
+  </section>
+
+  <!-- 10. Crown Finale -->
+  <section id="final">
+    <h2>👑 Long Live The Queen!</h2>
+    <div class="crown">👑</div>
+    <p>This site was made just for your magical birthday 💖</p>
+  </section>
 
   <script src="script.js"></script>
 </body>
